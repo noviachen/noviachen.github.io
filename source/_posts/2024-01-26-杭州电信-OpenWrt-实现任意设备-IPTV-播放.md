@@ -1,5 +1,5 @@
 ---
-title: 杭州电信 OpenWrt 实现任意设备 IPTV 播放.md
+title: 杭州电信 OpenWrt 实现任意设备 IPTV 播放
 tags:
   - OpenWrt
   - IPTV
