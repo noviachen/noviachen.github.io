@@ -1,3 +1,4 @@
+https://noviachen.github.io/posts/4efd700d.html
 https://noviachen.github.io/posts/5778b497.html
 https://noviachen.github.io/posts/6e55975b.html
 https://noviachen.github.io/posts/336738f7.html
@@ -44,3 +45,5 @@ https://noviachen.github.io/tags/Padavan/
 https://noviachen.github.io/tags/%E5%85%89%E7%8C%AB/
 https://noviachen.github.io/tags/OpenWrt/
 https://noviachen.github.io/tags/IPTV/
+https://noviachen.github.io/tags/PushBot/
+https://noviachen.github.io/tags/%E9%92%89%E9%92%89/
