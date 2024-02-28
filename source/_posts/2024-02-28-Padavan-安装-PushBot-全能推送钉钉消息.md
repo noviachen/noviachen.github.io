@@ -23,7 +23,7 @@ Padavan 自带的 ServerChan 微信推送有每天条数的限制，而且公众
 
 # 下载文件并上传到路由器
 
-打开这个链接 https://github.com/Twinzo1/padavan/tree/master/serverchan，下载
+打开这个链接 [https://github.com/Twinzo1/padavan/tree/master/serverchan](https://github.com/Twinzo1/padavan/tree/master/serverchan)，下载
 `serverchan.sh`到本地。
 
 使用 WinSCP 等工具将上述文件上传到`/etc/storage`，并修改权限为 755
