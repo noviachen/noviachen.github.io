@@ -1,3 +1,5 @@
+https://noviachen.github.io/posts/9e6b4afd.html
+https://noviachen.github.io/posts/93c7fbc7.html
 https://noviachen.github.io/posts/5778b497.html
 https://noviachen.github.io/posts/a412d2f.html
 https://noviachen.github.io/posts/4efd700d.html
@@ -12,7 +14,6 @@ https://noviachen.github.io/posts/ab81b88c.html
 https://noviachen.github.io/posts/a7b69dcb.html
 https://noviachen.github.io/posts/44fa3337.html
 https://noviachen.github.io/posts/81d3f69e.html
-https://noviachen.github.io/posts/93c7fbc7.html
 https://noviachen.github.io/posts/5f0d3a0.html
 https://noviachen.github.io/posts/b4cb2e1c.html
 https://noviachen.github.io/posts/7251af45.html
@@ -50,3 +51,4 @@ https://noviachen.github.io/tags/%E5%8D%95%E7%BA%BF%E5%A4%8D%E7%94%A8/
 https://noviachen.github.io/tags/PushBot/
 https://noviachen.github.io/tags/%E9%92%89%E9%92%89/
 https://noviachen.github.io/tags/qBittorrent/
+https://noviachen.github.io/tags/Zerotier/
