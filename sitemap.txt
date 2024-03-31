@@ -1,3 +1,4 @@
+https://noviachen.github.io/posts/75939a2b.html
 https://noviachen.github.io/posts/9e6b4afd.html
 https://noviachen.github.io/posts/93c7fbc7.html
 https://noviachen.github.io/posts/5778b497.html
@@ -52,3 +53,6 @@ https://noviachen.github.io/tags/PushBot/
 https://noviachen.github.io/tags/%E9%92%89%E9%92%89/
 https://noviachen.github.io/tags/qBittorrent/
 https://noviachen.github.io/tags/Zerotier/
+https://noviachen.github.io/tags/Bandwidthd/
+https://noviachen.github.io/tags/PostgreSQL/
+https://noviachen.github.io/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/
