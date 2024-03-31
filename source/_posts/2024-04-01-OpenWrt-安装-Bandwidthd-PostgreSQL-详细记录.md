@@ -12,7 +12,10 @@ date: 2024-04-01 09:07:39
 
 
 想找一个 OpenWrt 可以使用的,并且能根据 IP 统计流量的插件，主要看中了 nlbwmmon 和 Bandwidthd 两种。前者统计比较粗略，只有统计期间内的流量合计，没法查看各个期间的使用情况，最终还是决定使用 Bandwidthd。
+
 因为担心重启或者升级后数据丢失，选择了 PostgreSQL 数据库版本，PHP 网页服务端也分开部署，修改起来也方便。不过只找到了 OpenWrt 官方的文档，没有其他资料可以参考，所以踩了不少坑。这里记录一下，方便同样有需求的朋友。
+
+本人技术小白，主要使用宝塔面板来安装，可视化操作更方便。
 
 # 安装和配置 PostgreSQL 数据库
 
@@ -61,11 +64,13 @@ LEDE 可以在编译的时候直接加到固件中，x86_64 版本的 ipk 可以
 ```bash
 cd /tmp
 opkg install bandwidthd-pgsql_2.0.1-35-7_x86_64.ipk
+
+# 安装完成后再运行下面的命令
 /etc/init.d/bandwidthd enable
 /etc/init.d/bandwidthd start
 ```
 
-之后是修改`etc/config/bandwidthd`配置文件，这里就不再赘述了，可参考官方文档（在文章的最后）。重点注意`option pgsql_connect_string`，官方文件写得不是很清楚，请参考下面我的配置。
+之后是修改`etc/config/bandwidthd`配置文件，这里就不再赘述了，可参考官方文档（在文章的最后）。重点注意`option pgsql_connect_string`，官方文件写得不是很清楚，请参考下面我的配置。如果使用默认端口，端口号可以不用写。
 
 ```bash
 config bandwidthd
