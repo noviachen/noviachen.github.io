@@ -1,3 +1,4 @@
+https://noviachen.github.io/posts/fcde2f81.html
 https://noviachen.github.io/posts/6db264f8.html
 https://noviachen.github.io/posts/44fa3337.html
 https://noviachen.github.io/posts/5f0d3a0.html
@@ -56,3 +57,7 @@ https://noviachen.github.io/tags/Zerotier/
 https://noviachen.github.io/tags/Bandwidthd/
 https://noviachen.github.io/tags/PostgreSQL/
 https://noviachen.github.io/tags/%E5%AE%9D%E5%A1%94%E9%9D%A2%E6%9D%BF/
+https://noviachen.github.io/tags/Github-Action/
+https://noviachen.github.io/tags/Openwrt/
+https://noviachen.github.io/tags/ImmortalWrt/
+https://noviachen.github.io/tags/%E4%BA%91%E7%BC%96%E8%AF%91/
