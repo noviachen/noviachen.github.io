@@ -15,7 +15,7 @@ date: 2024-09-03 08:38:44
 因为对机场自带的规则不太满意，同时每次更新订阅都要使用代理，所以想自己搭建一个订阅转换服务。本人也是小白，看了 [自建Clash订阅转换 - Subconverter+Subweb+MyUrls搭建教程 - 全docker完成 - 避坑指南](https://imgki.com/archives/718.html?replyTo=443) 这篇文件，摸索了好几次才搭建完成。这里给网友们提供一下简略版的搭建过程，一步步来就行，省了很多步骤。
 
 
-本人使用 Lucky 提供反代服务，比较简单。如过使用宝塔或者其他，请自行搜索相关教程。
+本人使用 Lucky 提供反代服务，比较简单。如果使用宝塔或者其他，请自行搜索相关教程。
 
 首先，添加三个域名，`sub-converter-api.your_name.com` 用于 Subconverter，`sub-converter.your_name.com` 用于 Subweb，`short.your_name.com` 用于 MyUrls，对应本地的端口号请看最下面的 docker compose 文件。域名请自定。
 
@@ -25,7 +25,6 @@ date: 2024-09-03 08:38:44
 
 ```
 mkdir convert && cd convert
-
 ```
 
 拉取 sub-web 项目文件，并编辑
@@ -41,7 +40,6 @@ vi .env
 VUE_APP_SUBCONVERTER_DEFAULT_BACKEND = "https://sub-converter-api.your_name.com"
 VUE_APP_MYURLS_API = "https://short.your_name.com/short"
 VUE_APP_CONFIG_UPLOAD_API = "https://sub-converter-api.your_name.com"
-
 
 # 编辑 Subconverter.vue
 cd src/views
