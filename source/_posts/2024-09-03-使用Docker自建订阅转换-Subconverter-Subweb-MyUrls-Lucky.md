@@ -23,13 +23,13 @@ date: 2024-09-03 08:38:44
 
 新建 convert 文件夹作为项目目录，相关文件都存储在这里。
 
-```
+```bash
 mkdir convert && cd convert
 ```
 
 拉取 sub-web 项目文件，并编辑
 
-```
+```bash
 git clone https://github.com/CareyWang/sub-web.git 
 cd sub-web
 
@@ -51,7 +51,7 @@ backendOptions: [{ value: "https://sub-converter-api.your_name.com/sub?" }],
 
 补充一下，上面的 Subconverter.vue 可以自行添加规则，比如 ACL4SSR，在第 236 行（当前）`remoteConfig: [` 处回车，粘贴下面的代码即可。
 
-```
+```json
 {
             label: "ACL4SSR",
             options: [
@@ -166,21 +166,21 @@ backendOptions: [{ value: "https://sub-converter-api.your_name.com/sub?" }],
 
 拉取 MyUrls 项目文件，无需编辑任何文件
 
-```
+```bash
 cd ..
 git clone https://github.com/CareyWang/MyUrls.git MyUrls
 ```
 
 返回到 convert 文件夹，新建 docker-compose 文件
 
-```
+```bash
 cd ..
 vi docker-compose.yml
 ```
 
 添加下面的内容并保存
 
-```
+```yml
 version: '3.1'
 
 services:
