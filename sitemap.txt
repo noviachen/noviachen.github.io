@@ -1,3 +1,4 @@
+https://noviachen.github.io/posts/90c8a838.html
 https://noviachen.github.io/posts/950baac3.html
 https://noviachen.github.io/posts/fcde2f81.html
 https://noviachen.github.io/posts/6db264f8.html
@@ -67,3 +68,5 @@ https://noviachen.github.io/tags/Subweb/
 https://noviachen.github.io/tags/MyUrls/
 https://noviachen.github.io/tags/Lucky/
 https://noviachen.github.io/tags/Docker/
+https://noviachen.github.io/tags/1Panel/
+https://noviachen.github.io/tags/Docker-Compose/
