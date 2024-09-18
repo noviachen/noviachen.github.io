@@ -10,12 +10,11 @@ abbrlink: 90c8a838
 date: 2024-09-18 16:00:23
 ---
 
-一直想把面板从宝塔换成 1Panel，担心宝塔有后台，而且老是跳出来要绑定服务器，实在是太麻烦了。因为每隔几天就换了 IP，都需要重新绑定。但是 1Panel 一直支持 Python，所以搁置了很久。最近注意到可以使用 Docker 部署 Python 项目，虽然稍微麻烦点，但是基本上部署之后不会再动了，还能接受。
+一直想把面板从宝塔换成 1Panel，担心宝塔有后台，而且老是跳出来要绑定服务器，实在是太麻烦了。因为每隔几天就换了 IP，都需要重新绑定。但是 1Panel 一直未支持 Python，所以搁置了很久。最近注意到可以使用 Docker 部署 Python 项目，虽然稍微麻烦点，但是基本上部署之后不会再动了，还能接受。
 
 下面是一个简单的 Flask 应用，以及项目的目录结构，文件位于 /opt/1panel/docker/compose/flask-server。以下内容请根据实际的项目进行更改。
 
 ```Python
-
 # app.py
 
 from flask import Flask
@@ -91,7 +90,7 @@ networks:
     external: true
 ```
 
-最后，到 `编排` 中创建编排，选择使用编排模板。请注意，文件夹名称一定要与项目文件夹一致，比如这里需要设置成 flask_server
+最后，到 `编排` 中创建编排，选择使用编排模板。请注意，文件夹名称一定要与项目文件夹一致，比如这里需要设置成 flask-server
 
 ![new_compose.png](https://s2.loli.net/2024/09/18/SOFU2J7RAiYT3KB.png)
 
