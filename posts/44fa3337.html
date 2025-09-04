@@ -1,0 +1,220 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Mac + iOS + Charles 抓包教程（APP） | 方方小站</title><meta name="author" content="noviachen"><meta name="copyright" content="noviachen"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Charles 是有名的抓包软件，我觉得比 Fiddler 好使，至少界面更加直观，使用也更方便。这段时间一直用它来抓包 APP，所以就来记录一下使用的方法。 本文使用的是 Mac 和 iOS，其实 Windows 或 Android 的组合也是基本通用的。 目前最新版是 4.2.7，Windows &#x2F; Mac OS &#x2F; Linux 全平台可用。未注册的版本，每隔 30 分钟会">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Mac + iOS + Charles 抓包教程（APP）">
+<meta property="og:url" content="https://noviachen.github.io/posts/44fa3337.html">
+<meta property="og:site_name" content="方方小站">
+<meta property="og:description" content="Charles 是有名的抓包软件，我觉得比 Fiddler 好使，至少界面更加直观，使用也更方便。这段时间一直用它来抓包 APP，所以就来记录一下使用的方法。 本文使用的是 Mac 和 iOS，其实 Windows 或 Android 的组合也是基本通用的。 目前最新版是 4.2.7，Windows &#x2F; Mac OS &#x2F; Linux 全平台可用。未注册的版本，每隔 30 分钟会">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://i.loli.net/2020/10/07/TV3i7FzaJ9MkOYc.png">
+<meta property="article:published_time" content="2019-02-20T12:52:39.000Z">
+<meta property="article:modified_time" content="2025-09-04T06:30:31.734Z">
+<meta property="article:author" content="noviachen">
+<meta property="article:tag" content="Mac">
+<meta property="article:tag" content="iOS">
+<meta property="article:tag" content="Charles">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://i.loli.net/2020/10/07/TV3i7FzaJ9MkOYc.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://noviachen.github.io/posts/44fa3337.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><meta name="google-adsense-account" content="ca-pub-1940856825142219"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script async="async" src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script><script>(adsbygoogle = window.adsbygoogle || []).push({
+  google_ad_client: 'ca-pub-1940856825142219',
+  enable_page_level_ads: 'true'
+});</script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Mac + iOS + Charles 抓包教程（APP）',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-09-04 14:30:31'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><meta name="generator" content="Hexo 7.1.1"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('https://i.loli.net/2020/10/07/TV3i7FzaJ9MkOYc.png')"><nav id="nav"><span id="blog-info"><a href="/" title="方方小站"><span class="site-name">方方小站</span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Mac + iOS + Charles 抓包教程（APP）</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2019-02-20T12:52:39.000Z" title="发表于 2019-02-20 20:52:39">2019-02-20</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-09-04T06:30:31.734Z" title="更新于 2025-09-04 14:30:31">2025-09-04</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Mac + iOS + Charles 抓包教程（APP）"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><p>Charles 是有名的抓包软件，我觉得比 Fiddler 好使，至少界面更加直观，使用也更方便。这段时间一直用它来抓包 APP，所以就来记录一下使用的方法。</p>
+<p>本文使用的是 Mac 和 iOS，其实 Windows 或 Android 的组合也是基本通用的。</p>
+<p>目前最新版是 4.2.7，Windows &#x2F; Mac OS &#x2F; Linux 全平台可用。未注册的版本，每隔 30 分钟会自动关闭，不太影响使用便是。注册很简单，大家自行 Google。</p>
+<span id="more"></span>
+
+<p><img src="https://i.loli.net/2020/10/07/5cCsNMfKWe9hE4n.jpg"></p>
+<h1 id="关闭拦截-Mac-网络请求"><a href="#关闭拦截-Mac-网络请求" class="headerlink" title="关闭拦截 Mac 网络请求"></a>关闭拦截 Mac 网络请求</h1><p>我们的目的是截取 iOS APP的网络请求，所以不要有电脑的网络请求来影响我们的分析，需要取消 Proxy -&gt; MacOS Proxy 的勾选。</p>
+<p><img src="https://i.loli.net/2020/10/07/QyYz6xc1lX7wCkd.jpg"></p>
+<h1 id="配置端口号"><a href="#配置端口号" class="headerlink" title="配置端口号"></a>配置端口号</h1><p>Proxy -&gt; Proxy Settings 中设置端口号，并勾选 <code>Enable transparent HTTP proxying</code>。这里保持默认的 8888 端口。</p>
+<p><img src="https://i.loli.net/2020/10/07/KnAqpByQ8hwj6Xk.jpg"></p>
+<h1 id="配置-SSL-代理"><a href="#配置-SSL-代理" class="headerlink" title="配置 SSL 代理"></a>配置 SSL 代理</h1><p>Proxy -&gt; SSL Proxy Settings 中点击 Add 添加 443 端口，否则无法查看 HTTPS 的请求内容，会显示向上的蓝色箭头。</p>
+<p><img src="https://i.loli.net/2020/10/07/hKm2aQcxDeEVwJB.jpg"></p>
+<p><img src="https://i.loli.net/2020/10/07/Z921tTkSbRmLcDg.jpg"></p>
+<h1 id="在-Wi-Fi-中设置代理"><a href="#在-Wi-Fi-中设置代理" class="headerlink" title="在 Wi-Fi 中设置代理"></a>在 Wi-Fi 中设置代理</h1><p><img src="https://i.loli.net/2020/10/07/KTVGOxa6Z8przNt.jpg"></p>
+<h1 id="手机上安装-SSL-证书"><a href="#手机上安装-SSL-证书" class="headerlink" title="手机上安装 SSL 证书"></a>手机上安装 SSL 证书</h1><p>设置完代理后，Charles 会出现一个对话框，点击“允许”（Allow）以允许设备接入 Charles。</p>
+<p><img src="https://i.loli.net/2020/10/07/z3L2botr8usTVhI.jpg"></p>
+<p>之后在浏览器中打开 chls.pro&#x2F;ssl 安装证书。如果没有弹出以下界面，请确认 Wi-Fi 代理是否设置正确。</p>
+<p><img src="https://i.loli.net/2020/10/07/oOXZQm5YwMh4LN6.jpg"></p>
+<p><img src="https://i.loli.net/2020/10/07/HgPNE9ebwjCdqTr.jpg"></p>
+<p>最后这一步也很重要，不要忽略。在 iOS 的 设置 -&gt; 通用 -&gt; 关于本机 -&gt; 证书信任设置 中信任新安装的证书。</p>
+<p><img src="https://i.loli.net/2020/10/07/UTnSlCMYGkLNvzf.jpg"></p>
+<p>至此，愉快的抓包吧，啦啦啦 ＼(☆o☆)／</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="https://noviachen.github.io">noviachen</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="https://noviachen.github.io/posts/44fa3337.html">https://noviachen.github.io/posts/44fa3337.html</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://noviachen.github.io" target="_blank">方方小站</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Mac/">Mac</a><a class="post-meta__tags" href="/tags/iOS/">iOS</a><a class="post-meta__tags" href="/tags/Charles/">Charles</a></div><div class="post_share"><div class="social-share" data-image="https://i.loli.net/2020/10/07/TV3i7FzaJ9MkOYc.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/posts/c31b0dab.html" title="Debian 安装 jiacrontab  管理定时任务"><img class="cover" src="https://i.loli.net/2020/10/07/HxnsXLNTG6oiBSF.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">Debian 安装 jiacrontab  管理定时任务</div></div></a></div><div class="next-post pull-right"><a href="/posts/5f0d3a0.html" title="Flask + Gunicorn + Nginx 部署"><img class="cover" src="https://i.loli.net/2020/10/07/iJvMmQ2cfOLXkHY.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Flask + Gunicorn + Nginx 部署</div></div></a></div></nav><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="https://i.loli.net/2021/02/24/5O1day2nriDzjSu.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">noviachen</div><div class="author-info__description"></div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">24</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">47</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/noviachen"><i class="fab fa-github"></i><span>Follow Me</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B3%E9%97%AD%E6%8B%A6%E6%88%AA-Mac-%E7%BD%91%E7%BB%9C%E8%AF%B7%E6%B1%82"><span class="toc-number">1.</span> <span class="toc-text">关闭拦截 Mac 网络请求</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE%E7%AB%AF%E5%8F%A3%E5%8F%B7"><span class="toc-number">2.</span> <span class="toc-text">配置端口号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%85%8D%E7%BD%AE-SSL-%E4%BB%A3%E7%90%86"><span class="toc-number">3.</span> <span class="toc-text">配置 SSL 代理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8-Wi-Fi-%E4%B8%AD%E8%AE%BE%E7%BD%AE%E4%BB%A3%E7%90%86"><span class="toc-number">4.</span> <span class="toc-text">在 Wi-Fi 中设置代理</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%89%8B%E6%9C%BA%E4%B8%8A%E5%AE%89%E8%A3%85-SSL-%E8%AF%81%E4%B9%A6"><span class="toc-number">5.</span> <span class="toc-text">手机上安装 SSL 证书</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/posts/90c8a838.html" title="在 1Panel 中使用 Docker-Compose 部署 Flask 应用"><img src="https://s2.loli.net/2024/09/18/qHDKfW2e7vRkwJF.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="在 1Panel 中使用 Docker-Compose 部署 Flask 应用"/></a><div class="content"><a class="title" href="/posts/90c8a838.html" title="在 1Panel 中使用 Docker-Compose 部署 Flask 应用">在 1Panel 中使用 Docker-Compose 部署 Flask 应用</a><time datetime="2024-09-18T08:00:23.000Z" title="发表于 2024-09-18 16:00:23">2024-09-18</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/950baac3.html" title="使用 Docker 自建订阅转换 Subconverter + Subweb + MyUrls + Lukcy"><img src="https://s2.loli.net/2024/09/03/AUVwQY1CEpP5Is6.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 Docker 自建订阅转换 Subconverter + Subweb + MyUrls + Lukcy"/></a><div class="content"><a class="title" href="/posts/950baac3.html" title="使用 Docker 自建订阅转换 Subconverter + Subweb + MyUrls + Lukcy">使用 Docker 自建订阅转换 Subconverter + Subweb + MyUrls + Lukcy</a><time datetime="2024-09-03T00:38:44.000Z" title="发表于 2024-09-03 08:38:44">2024-09-03</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/fcde2f81.html" title="使用 Image Builder 快速生成 OpenWrt 固件"><img src="https://s2.loli.net/2024/08/02/dOnmMUX2WRo8qQw.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="使用 Image Builder 快速生成 OpenWrt 固件"/></a><div class="content"><a class="title" href="/posts/fcde2f81.html" title="使用 Image Builder 快速生成 OpenWrt 固件">使用 Image Builder 快速生成 OpenWrt 固件</a><time datetime="2024-08-02T08:06:31.000Z" title="发表于 2024-08-02 16:06:31">2024-08-02</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/75939a2b.html" title="OpenWrt 安装 Bandwidthd PostgreSQL 详细记录"><img src="https://s2.loli.net/2024/03/31/8jLc4G2ONhlPnBo.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="OpenWrt 安装 Bandwidthd PostgreSQL 详细记录"/></a><div class="content"><a class="title" href="/posts/75939a2b.html" title="OpenWrt 安装 Bandwidthd PostgreSQL 详细记录">OpenWrt 安装 Bandwidthd PostgreSQL 详细记录</a><time datetime="2024-04-01T01:07:39.000Z" title="发表于 2024-04-01 09:07:39">2024-04-01</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/posts/9e6b4afd.html" title="解决 OpenWrt Zerotier 重启后 MAC 地址和 ID 变更"><img src="https://s2.loli.net/2024/03/13/qmulHhQ3KNLpdYP.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="解决 OpenWrt Zerotier 重启后 MAC 地址和 ID 变更"/></a><div class="content"><a class="title" href="/posts/9e6b4afd.html" title="解决 OpenWrt Zerotier 重启后 MAC 地址和 ID 变更">解决 OpenWrt Zerotier 重启后 MAC 地址和 ID 变更</a><time datetime="2024-03-21T11:16:37.000Z" title="发表于 2024-03-21 19:16:37">2024-03-21</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By noviachen</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const initGitalk = () => {
+    const gitalk = new Gitalk(Object.assign({
+      clientID: '0c7225fe0b8537fbf8f8',
+      clientSecret: '6c33e037b95fd87aff508a6a8b7e3ace5faab986',
+      repo: 'hexo_comment',
+      owner: 'noviachen',
+      admin: ['noviachen'],
+      id: '7a958e5e6fb189656c772c529424cf8f',
+      updateCountCallback: commentCount
+    },null))
+
+    gitalk.render('gitalk-container')
+  }
+
+  const loadGitalk = async() => {
+    if (typeof Gitalk === 'function') initGitalk()
+    else {
+      await getCSS('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.css')
+      await getScript('https://cdn.jsdelivr.net/npm/gitalk@1.8.0/dist/gitalk.min.js')
+      initGitalk()
+    }
+  }
+  
+  const commentCount = n => {
+    const isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+    if (isCommentCount) {
+      isCommentCount.textContent= n
+    }
+  }
+
+  if ('Gitalk' === 'Gitalk' || !false) {
+    if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+    else loadGitalk()
+  } else {
+    window.loadOtherComment = loadGitalk
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
