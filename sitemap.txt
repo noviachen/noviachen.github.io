@@ -1,3 +1,5 @@
+https://noviachen.github.io/posts/d13a977f.html
+https://noviachen.github.io/posts/90c8a838.html
 https://noviachen.github.io/posts/e320a5fc.html
 https://noviachen.github.io/posts/93c7fbc7.html
 https://noviachen.github.io/posts/9644ce66.html
@@ -12,7 +14,6 @@ https://noviachen.github.io/posts/9e6b4afd.html
 https://noviachen.github.io/posts/75939a2b.html
 https://noviachen.github.io/posts/fcde2f81.html
 https://noviachen.github.io/posts/950baac3.html
-https://noviachen.github.io/posts/90c8a838.html
 https://noviachen.github.io/posts/6db264f8.html
 https://noviachen.github.io/posts/5f0d3a0.html
 https://noviachen.github.io/posts/44fa3337.html
@@ -70,3 +71,9 @@ https://noviachen.github.io/tags/Lucky/
 https://noviachen.github.io/tags/Docker/
 https://noviachen.github.io/tags/1Panel/
 https://noviachen.github.io/tags/Docker-Compose/
+https://noviachen.github.io/tags/HP-M1005/
+https://noviachen.github.io/tags/AirPrint/
+https://noviachen.github.io/tags/p910nd/
+https://noviachen.github.io/tags/CUPS/
+https://noviachen.github.io/tags/SANE/
+https://noviachen.github.io/tags/scanservjs/
